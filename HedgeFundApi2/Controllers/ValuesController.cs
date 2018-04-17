@@ -26,7 +26,7 @@ namespace HedgeFundApi2.Controllers
         }
 
         // POST api/values
-        public void Post([FromBody]string value)
+        public void Post([FromBody] Person person)
         {
         }
 

@@ -6,6 +6,19 @@
                 $scope.data = response.data;
                 
             });
+        $scope.PostData = function () {
+            var config = {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+            var data = {FirstName: "ROland", LastName: "Piggott", Email: "rolandjpiggott@gmail.com"}
+            alert("im rhere");
+            $http.post('http://localhost:58566/api/values', data, config)
+                .success(function (data, status, headers, config) {
+                    $scope.PostDataResponse = data;
+                });
+        };
     });
 </script>
 
@@ -27,6 +40,7 @@
             </tr>
         </tbody>
     </table>
+    <input type="button" value="post" ng-click="PostData()" />
 
 </div>
 
