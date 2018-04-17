@@ -1,0 +1,32 @@
+﻿<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope, $http) {
+        $http.get("http://localhost:58566/api/values")
+            .then(function (response) {
+                $scope.data = response.data;
+                
+            });
+    });
+</script>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+   
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Email</td>
+            </tr>
+        </thead>
+        <tbody ng-repeat="i in data">
+            <tr>
+                <td>{{i.FirstName}}</td>
+                <td>{{i.LastName}}</td>
+                <td>{{i.Email}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
